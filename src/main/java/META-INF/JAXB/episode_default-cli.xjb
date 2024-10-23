@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Este archivo ha sido generado por Eclipse Implementation of JAXB v3.0.0 
+Visite https://eclipse-ee4j.github.io/jaxb-ri 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2024.10.22 a las 10:59:09 PM PET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+    <schemaBindings map="false">
+      <package name="pe.edu.cibertec.ws.objects"/>
+    </schemaBindings>
+    <bindings scd="tns:getCursosRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetCursosRequest"/>
+    </bindings>
+    <bindings scd="tns:getCursosResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetCursosResponse"/>
+    </bindings>
+    <bindings scd="~tns:cursoWs">
+      <class ref="pe.edu.cibertec.ws.objects.CursoWs"/>
+    </bindings>
+    <bindings scd="tns:getCursoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetCursoRequest"/>
+    </bindings>
+    <bindings scd="tns:getCursoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetCursoResponse"/>
+    </bindings>
+    <bindings scd="tns:postCursoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostCursoRequest"/>
+    </bindings>
+    <bindings scd="tns:postCursoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostCursoResponse"/>
+    </bindings>
+    <bindings scd="tns:putCursoRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PutCursoRequest"/>
+    </bindings>
+    <bindings scd="tns:putCursoResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PutCursoResponse"/>
+    </bindings>
+    <bindings scd="tns:getEstudiantesRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetEstudiantesRequest"/>
+    </bindings>
+    <bindings scd="tns:getEstudiantesResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetEstudiantesResponse"/>
+    </bindings>
+    <bindings scd="~tns:estudiantews">
+      <class ref="pe.edu.cibertec.ws.objects.Estudiantews"/>
+    </bindings>
+    <bindings scd="tns:getEstudianteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetEstudianteRequest"/>
+    </bindings>
+    <bindings scd="tns:getEstudianteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetEstudianteResponse"/>
+    </bindings>
+    <bindings scd="tns:postEstudianteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostEstudianteRequest"/>
+    </bindings>
+    <bindings scd="tns:postEstudianteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostEstudianteResponse"/>
+    </bindings>
+    <bindings scd="tns:putEstudianteRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PutEstudianteRequest"/>
+    </bindings>
+    <bindings scd="tns:putEstudianteResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PutEstudianteResponse"/>
+    </bindings>
+    <bindings scd="tns:getMatriculasRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetMatriculasRequest"/>
+    </bindings>
+    <bindings scd="tns:getMatriculasResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetMatriculasResponse"/>
+    </bindings>
+    <bindings scd="~tns:matriculaWs">
+      <class ref="pe.edu.cibertec.ws.objects.MatriculaWs"/>
+    </bindings>
+    <bindings scd="tns:getMatriculaRequest">
+      <class ref="pe.edu.cibertec.ws.objects.GetMatriculaRequest"/>
+    </bindings>
+    <bindings scd="tns:getMatriculaResponse">
+      <class ref="pe.edu.cibertec.ws.objects.GetMatriculaResponse"/>
+    </bindings>
+    <bindings scd="tns:postMatriculaRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PostMatriculaRequest"/>
+    </bindings>
+    <bindings scd="tns:postMatriculaResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PostMatriculaResponse"/>
+    </bindings>
+    <bindings scd="tns:putMatriculaRequest">
+      <class ref="pe.edu.cibertec.ws.objects.PutMatriculaRequest"/>
+    </bindings>
+    <bindings scd="tns:putMatriculaResponse">
+      <class ref="pe.edu.cibertec.ws.objects.PutMatriculaResponse"/>
+    </bindings>
+    <bindings scd="~tns:facultadWs">
+      <class ref="pe.edu.cibertec.ws.objects.FacultadWs"/>
+    </bindings>
+    <bindings scd="~tns:profesorWs">
+      <class ref="pe.edu.cibertec.ws.objects.ProfesorWs"/>
+    </bindings>
+  </bindings>
+</bindings>
+

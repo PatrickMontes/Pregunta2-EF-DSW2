@@ -1,0 +1,77 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.cibertec.edu.pe/ws/objects"
+           targetNamespace="http://www.cibertec.edu.pe/ws/objects"
+           elementFormDefault="qualified">
+    <xs:complexType name="estudiantews">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int" />
+            <xs:element name="nombre" type="xs:string" />
+            <xs:element name="apellido" type="xs:string" />
+            <xs:element name="carrera" type="xs:string" />
+            <xs:element name="email" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getEstudiantesRequest">
+        <xs:complexType>
+            <xs:sequence />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEstudiantesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiantes"
+                            type="tns:estudiantews" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEstudianteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getEstudianteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiante" type="tns:estudiantews" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postEstudianteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiante" type="tns:estudiantews" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="postEstudianteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiante" type="tns:estudiantews" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putEstudianteRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiante" type="tns:estudiantews" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="putEstudianteResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="estudiante" type="tns:estudiantews" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
