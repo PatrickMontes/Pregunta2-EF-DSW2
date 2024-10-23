@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="22fd7d59-af3d-4b0f-8754-1010a90da7a9" activeEnvironment="Default" name="EF" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d9fef5f7-ebcd-4698-9b42-0a58508e0e9f" wsaVersion="NONE" name="EstudiantesPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}EstudiantesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/estudiantes.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/estudiantes.wsdl"><con:part><con:url>http://localhost:8080/ws/estudiantes.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="estudiantews">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="apellido" type="xs:string"/>
+          <xs:element name="carrera" type="xs:string"/>
+          <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getEstudiantesRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEstudiantesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="estudiantes" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEstudianteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getEstudianteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="estudiante" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postEstudianteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="estudiante" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postEstudianteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="estudiante" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putEstudianteRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="estudiante" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putEstudianteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="estudiante" type="tns:estudiantews"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getEstudiantesRequest">
+    <wsdl:part element="tns:getEstudiantesRequest" name="getEstudiantesRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putEstudianteResponse">
+    <wsdl:part element="tns:putEstudianteResponse" name="putEstudianteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEstudianteRequest">
+    <wsdl:part element="tns:postEstudianteRequest" name="postEstudianteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postEstudianteResponse">
+    <wsdl:part element="tns:postEstudianteResponse" name="postEstudianteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEstudiantesResponse">
+    <wsdl:part element="tns:getEstudiantesResponse" name="getEstudiantesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEstudianteResponse">
+    <wsdl:part element="tns:getEstudianteResponse" name="getEstudianteResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putEstudianteRequest">
+    <wsdl:part element="tns:putEstudianteRequest" name="putEstudianteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEstudianteRequest">
+    <wsdl:part element="tns:getEstudianteRequest" name="getEstudianteRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EstudiantesPort">
+    <wsdl:operation name="getEstudiantes">
+      <wsdl:input message="tns:getEstudiantesRequest" name="getEstudiantesRequest"></wsdl:input>
+      <wsdl:output message="tns:getEstudiantesResponse" name="getEstudiantesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putEstudiante">
+      <wsdl:input message="tns:putEstudianteRequest" name="putEstudianteRequest"></wsdl:input>
+      <wsdl:output message="tns:putEstudianteResponse" name="putEstudianteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEstudiante">
+      <wsdl:input message="tns:postEstudianteRequest" name="postEstudianteRequest"></wsdl:input>
+      <wsdl:output message="tns:postEstudianteResponse" name="postEstudianteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstudiante">
+      <wsdl:input message="tns:getEstudianteRequest" name="getEstudianteRequest"></wsdl:input>
+      <wsdl:output message="tns:getEstudianteResponse" name="getEstudianteResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstudiantesPortSoap11" type="tns:EstudiantesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEstudiantes">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEstudiantesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEstudiantesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putEstudiante">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="putEstudianteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putEstudianteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postEstudiante">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postEstudianteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postEstudianteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEstudiante">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEstudianteRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEstudianteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstudiantesPortService">
+    <wsdl:port binding="tns:EstudiantesPortSoap11" name="EstudiantesPortSoap11">
+      <soap:address location="http://localhost:8080/ws/estudiantes"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/estudiantes</con:endpoint></con:endpoints><con:operation id="9eec975f-070d-4abe-afea-390784acc769" isOneWay="false" action="" name="getEstudiante" bindingOperationName="getEstudiante" type="Request-Response" outputName="getEstudianteResponse" inputName="getEstudianteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="293dce05-e893-47d2-9e24-86138cbdaaf1" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/estudiantes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getEstudianteRequest>\r
+         <obj:id>1</obj:id>\r
+      </obj:getEstudianteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EstudiantesPort/getEstudianteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5f3d9310-44b9-475a-ad1e-c8f928e47b23" isOneWay="false" action="" name="getEstudiantes" bindingOperationName="getEstudiantes" type="Request-Response" outputName="getEstudiantesResponse" inputName="getEstudiantesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d72a14a3-e688-4dc9-99a9-0b943ca0234f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/estudiantes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getEstudiantesRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EstudiantesPort/getEstudiantesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3d1661e6-727f-47ac-99e9-051ea9f54089" isOneWay="false" action="" name="postEstudiante" bindingOperationName="postEstudiante" type="Request-Response" outputName="postEstudianteResponse" inputName="postEstudianteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="183bdf7b-ffe3-4d84-886b-727f7c9468fb" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/estudiantes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postEstudianteRequest>\r
+         <obj:estudiante>\r
+            <obj:id>9</obj:id>\r
+            <obj:nombre>Pruebasss</obj:nombre>\r
+            <obj:apellido>Pruebasss</obj:apellido>\r
+            <obj:carrera>Ing</obj:carrera>\r
+            <obj:email>prueba@gmail.com</obj:email>\r
+         </obj:estudiante>\r
+      </obj:postEstudianteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EstudiantesPort/postEstudianteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9e76b356-1028-4da9-af4a-07ae76af5981" isOneWay="false" action="" name="putEstudiante" bindingOperationName="putEstudiante" type="Request-Response" outputName="putEstudianteResponse" inputName="putEstudianteRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="236f8a3a-0070-457f-b45f-7fc868a3ac6a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/estudiantes</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:putEstudianteRequest>\r
+         <obj:estudiante>\r
+            <obj:id>9</obj:id>
+            <obj:nombre>PASDDDFE</obj:nombre>
+            <obj:apellido>Pruebasss</obj:apellido>
+            <obj:carrera>Ing</obj:carrera>
+            <obj:email>prueba@gmail.com</obj:email>
+         </obj:estudiante>\r
+      </obj:putEstudianteRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/EstudiantesPort/putEstudianteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="4a6741e3-3c77-4836-bd11-5c640a3bdf96" wsaVersion="NONE" name="CursosPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}CursosPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/cursos.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/cursos.wsdl"><con:part><con:url>http://localhost:8080/ws/cursos.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="cursoWs">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="nombre" type="xs:string"/>
+          <xs:element name="creditos" type="xs:int"/>
+          <xs:element name="semestre" type="xs:string"/>
+          <xs:element name="facultadId" type="xs:int"/>
+          <xs:element name="profesorId" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCursosRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCursosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="cursos" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCursoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCursoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="curso" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postCursoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="curso" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postCursoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="curso" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putCursoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="curso" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putCursoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="curso" type="tns:cursoWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="postCursoResponse">
+    <wsdl:part element="tns:postCursoResponse" name="postCursoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCursosResponse">
+    <wsdl:part element="tns:getCursosResponse" name="getCursosResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postCursoRequest">
+    <wsdl:part element="tns:postCursoRequest" name="postCursoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCursoResponse">
+    <wsdl:part element="tns:getCursoResponse" name="getCursoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putCursoRequest">
+    <wsdl:part element="tns:putCursoRequest" name="putCursoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putCursoResponse">
+    <wsdl:part element="tns:putCursoResponse" name="putCursoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCursosRequest">
+    <wsdl:part element="tns:getCursosRequest" name="getCursosRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCursoRequest">
+    <wsdl:part element="tns:getCursoRequest" name="getCursoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CursosPort">
+    <wsdl:operation name="postCurso">
+      <wsdl:input message="tns:postCursoRequest" name="postCursoRequest"></wsdl:input>
+      <wsdl:output message="tns:postCursoResponse" name="postCursoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCursos">
+      <wsdl:input message="tns:getCursosRequest" name="getCursosRequest"></wsdl:input>
+      <wsdl:output message="tns:getCursosResponse" name="getCursosResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurso">
+      <wsdl:input message="tns:getCursoRequest" name="getCursoRequest"></wsdl:input>
+      <wsdl:output message="tns:getCursoResponse" name="getCursoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putCurso">
+      <wsdl:input message="tns:putCursoRequest" name="putCursoRequest"></wsdl:input>
+      <wsdl:output message="tns:putCursoResponse" name="putCursoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CursosPortSoap11" type="tns:CursosPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="postCurso">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postCursoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postCursoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCursos">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCursosRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCursosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurso">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getCursoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCursoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putCurso">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="putCursoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putCursoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CursosPortService">
+    <wsdl:port binding="tns:CursosPortSoap11" name="CursosPortSoap11">
+      <soap:address location="http://localhost:8080/ws/cursos"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/cursos</con:endpoint></con:endpoints><con:operation id="699d9c32-0745-4f63-b89d-75c84e35caff" isOneWay="false" action="" name="getCurso" bindingOperationName="getCurso" type="Request-Response" outputName="getCursoResponse" inputName="getCursoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ef6cbf69-99ef-4f97-a7cf-f3117ccd5428" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/cursos</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getCursoRequest>\r
+         <obj:id>1</obj:id>\r
+      </obj:getCursoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/CursosPort/getCursoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="795a2c2e-4cf9-4885-821f-4af7686e3146" isOneWay="false" action="" name="getCursos" bindingOperationName="getCursos" type="Request-Response" outputName="getCursosResponse" inputName="getCursosRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cb0c7cd6-f54b-40ab-9092-13c40f4dd891" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/cursos</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getCursosRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/CursosPort/getCursosRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0cfd0c4c-6347-4e1b-971d-2e375826ca9b" isOneWay="false" action="" name="postCurso" bindingOperationName="postCurso" type="Request-Response" outputName="postCursoResponse" inputName="postCursoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="16588787-2132-4204-b520-b84cfe6e7e0e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/cursos</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postCursoRequest>\r
+         <obj:curso>\r
+            <obj:id>9</obj:id>\r
+            <obj:nombre>pRUEBA</obj:nombre>\r
+            <obj:creditos>5</obj:creditos>\r
+            <obj:semestre>2024-II</obj:semestre>\r
+            <obj:facultadId>1</obj:facultadId>\r
+            <obj:profesorId>1</obj:profesorId>\r
+         </obj:curso>\r
+      </obj:postCursoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/CursosPort/postCursoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="f560d686-f5fb-457f-89fc-b85db99a3098" isOneWay="false" action="" name="putCurso" bindingOperationName="putCurso" type="Request-Response" outputName="putCursoResponse" inputName="putCursoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f6311ae-baa8-4931-89cc-5ae84ef9b317" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/cursos</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:putCursoRequest>\r
+         <obj:curso>\r
+            <obj:id>9</obj:id>\r
+            <obj:nombre>Pruebassssss</obj:nombre>\r
+            <obj:creditos>5</obj:creditos>\r
+            <obj:semestre>2024-ii</obj:semestre>\r
+            <obj:facultadId>1</obj:facultadId>\r
+            <obj:profesorId>1</obj:profesorId>\r
+         </obj:curso>\r
+      </obj:putCursoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/CursosPort/putCursoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="ba8bad22-5287-46b0-b6cd-884620628440" wsaVersion="NONE" name="MatriculasPortSoap11" type="wsdl" bindingName="{http://www.cibertec.edu.pe/ws/objects}MatriculasPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/matriculas.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/matriculas.wsdl"><con:part><con:url>http://localhost:8080/ws/matriculas.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.cibertec.edu.pe/ws/objects" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.cibertec.edu.pe/ws/objects">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.cibertec.edu.pe/ws/objects" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="matriculaWs">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="estudianteId" type="xs:int"/>
+          <xs:element name="cursoId" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMatriculasRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMatriculasResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="matriculas" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMatriculaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMatriculaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="matricula" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postMatriculaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="matricula" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="postMatriculaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="matricula" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putMatriculaRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="matricula" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="putMatriculaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="matricula" type="tns:matriculaWs"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMatriculaRequest">
+    <wsdl:part element="tns:getMatriculaRequest" name="getMatriculaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putMatriculaRequest">
+    <wsdl:part element="tns:putMatriculaRequest" name="putMatriculaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postMatriculaRequest">
+    <wsdl:part element="tns:postMatriculaRequest" name="postMatriculaRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMatriculaResponse">
+    <wsdl:part element="tns:getMatriculaResponse" name="getMatriculaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="postMatriculaResponse">
+    <wsdl:part element="tns:postMatriculaResponse" name="postMatriculaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="putMatriculaResponse">
+    <wsdl:part element="tns:putMatriculaResponse" name="putMatriculaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMatriculasResponse">
+    <wsdl:part element="tns:getMatriculasResponse" name="getMatriculasResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMatriculasRequest">
+    <wsdl:part element="tns:getMatriculasRequest" name="getMatriculasRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MatriculasPort">
+    <wsdl:operation name="getMatricula">
+      <wsdl:input message="tns:getMatriculaRequest" name="getMatriculaRequest"></wsdl:input>
+      <wsdl:output message="tns:getMatriculaResponse" name="getMatriculaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putMatricula">
+      <wsdl:input message="tns:putMatriculaRequest" name="putMatriculaRequest"></wsdl:input>
+      <wsdl:output message="tns:putMatriculaResponse" name="putMatriculaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postMatricula">
+      <wsdl:input message="tns:postMatriculaRequest" name="postMatriculaRequest"></wsdl:input>
+      <wsdl:output message="tns:postMatriculaResponse" name="postMatriculaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMatriculas">
+      <wsdl:input message="tns:getMatriculasRequest" name="getMatriculasRequest"></wsdl:input>
+      <wsdl:output message="tns:getMatriculasResponse" name="getMatriculasResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MatriculasPortSoap11" type="tns:MatriculasPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMatricula">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMatriculaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMatriculaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putMatricula">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="putMatriculaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="putMatriculaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="postMatricula">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="postMatriculaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="postMatriculaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMatriculas">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMatriculasRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMatriculasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MatriculasPortService">
+    <wsdl:port binding="tns:MatriculasPortSoap11" name="MatriculasPortSoap11">
+      <soap:address location="http://localhost:8080/ws/matriculas"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws/matriculas</con:endpoint></con:endpoints><con:operation id="054499c9-4a6e-464a-99dd-c0beb8c6e850" isOneWay="false" action="" name="getMatricula" bindingOperationName="getMatricula" type="Request-Response" outputName="getMatriculaResponse" inputName="getMatriculaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="57a6ee4e-9ac5-4c58-88e3-4e3e38552035" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/matriculas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getMatriculaRequest>\r
+         <obj:id>1</obj:id>\r
+      </obj:getMatriculaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/MatriculasPort/getMatriculaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="fef9a239-0317-4dac-bee2-0ddb419684f7" isOneWay="false" action="" name="getMatriculas" bindingOperationName="getMatriculas" type="Request-Response" outputName="getMatriculasResponse" inputName="getMatriculasRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1e553309-bcf8-41eb-aa83-df1a29e24bca" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/matriculas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:getMatriculasRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/MatriculasPort/getMatriculasRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b7915da2-c634-4a48-aa4f-363342def33e" isOneWay="false" action="" name="postMatricula" bindingOperationName="postMatricula" type="Request-Response" outputName="postMatriculaResponse" inputName="postMatriculaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a5842b71-2f0b-430d-bbc2-45d7fd277e21" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/matriculas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:postMatriculaRequest>\r
+         <obj:matricula>\r
+            <obj:id>17</obj:id>\r
+            <obj:estudianteId>8</obj:estudianteId>\r
+            <obj:cursoId>8</obj:cursoId>\r
+         </obj:matricula>\r
+      </obj:postMatriculaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/MatriculasPort/postMatriculaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2a041c13-51e5-4037-bcfc-a6df62574345" isOneWay="false" action="" name="putMatricula" bindingOperationName="putMatricula" type="Request-Response" outputName="putMatriculaResponse" inputName="putMatriculaRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="83621e20-4868-46db-a202-a9888ec1ecbe" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws/matriculas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:obj="http://www.cibertec.edu.pe/ws/objects">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <obj:putMatriculaRequest>\r
+         <obj:matricula>\r
+             <obj:id>17</obj:id>
+            <obj:estudianteId>8</obj:estudianteId>
+            <obj:cursoId>8</obj:cursoId>
+         </obj:matricula>\r
+      </obj:putMatriculaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.cibertec.edu.pe/ws/objects/MatriculasPort/putMatriculaRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
